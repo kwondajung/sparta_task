@@ -14,7 +14,7 @@ function App() {
   // 📌 추가하기
   // 주석 먼저 쓰고 코드 짜기
   // 1. 먼저 있는 배열에 추가로 입력되는 객체 넣기
-  // 2. state 변경^^
+  // 2. state 변경
   const handleAddCountry = () => {
     const 추가 = {
       name: country,
@@ -88,7 +88,6 @@ function App() {
           setCountry(newCountry);
         }}
       >
-        {/* 국가 이름, 메달 갯수의 입력 필드와 버튼 위치 */}
         <div>
           <h4>국가명</h4>
           <input
@@ -144,7 +143,6 @@ function App() {
         </div>
       </form>
       <div>
-        {/* 메달 집계 리스트가 표시될 자리 */}
         <div>
           <table>
             <thead>
