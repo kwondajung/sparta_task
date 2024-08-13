@@ -55,7 +55,7 @@ function App() {
     });
 
     setCountryArr(수정);
-  }; // handleUpdateCountry 끝
+  };
 
   // 📌 삭제하기
   // 삭제하기 btn이 클릭됐을 때 이 버튼이 어느 국가의 삭제하기 btn인지 판별하기 위해 버튼 자체에서 국가의 이름을 넘겨줘야 함
@@ -72,8 +72,6 @@ function App() {
     });
     setCountryArr(삭제);
   };
-
-  // handleDeleteCountry 끝
 
   return (
     <div className="container">
