@@ -17,6 +17,25 @@ function App() {
   // 주석 먼저 쓰고 코드 짜기
   // 1. 먼저 있는 배열에 추가로 입력되는 객체 넣기
   // 2. state 변경
+
+  // const handleAddCountry = () => {
+  //   if (country !== '') {
+  //     const 추가 = {
+  //       name: country,
+  //       gold,
+  //       silver,
+  //       bronze,
+  //     };
+  //     const 새배열 = [...countryArr, 추가];
+  //     setCountryArr(새배열);
+  //     console.log('if문 통과');
+  //     return;
+  //   } else {
+  //     alert('국가를 추가해주세요!');
+  //     console.log('알럿창 확인');
+  //     return;
+  //   }
+  // };
   const handleAddCountry = () => {
     const 추가 = {
       name: country,
@@ -24,7 +43,6 @@ function App() {
       silver,
       bronze,
     };
-
     const 새배열 = [...countryArr, 추가];
     setCountryArr(새배열);
   };
@@ -125,40 +143,45 @@ function App() {
           <Button onClickFunc={handleUpdateCountry} btnName="업데이트" />
         </div>
       </form>
-      <div>
+      <br />
+      {countryArr.length === 0 ? (
+        '아직 아무것도 집계되지 않았습니다. 국가와 메달을 추가해보세요! 🏅'
+      ) : (
         <div>
-          <table>
-            <thead>
-              <tr>
-                <th>국가명</th>
-                <th>금메달</th>
-                <th>은메달</th>
-                <th>동메달</th>
-                <th>액션</th>
-              </tr>
-            </thead>
-            <tbody>
-              {countryArr.map((테이블) => (
-                <tr key={테이블.name}>
-                  <td>{테이블.name}</td>
-                  <td>{테이블.gold}</td>
-                  <td>{테이블.silver}</td>
-                  <td>{테이블.bronze}</td>
-                  <td>
-                    <button
-                      onClick={() => handleDeleteCountry(테이블)}
-                      type="submit"
-                    >
-                      삭제
-                    </button>
-                    {/* 함수로 감싼다/ 화살표 함수 빼면 함수의 리턴값임*/}
-                  </td>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>국가명</th>
+                  <th>금메달</th>
+                  <th>은메달</th>
+                  <th>동메달</th>
+                  <th>액션</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {countryArr.map((테이블) => (
+                  <tr key={테이블.name}>
+                    <td>{테이블.name}</td>
+                    <td>{테이블.gold}</td>
+                    <td>{테이블.silver}</td>
+                    <td>{테이블.bronze}</td>
+                    <td>
+                      <button
+                        onClick={() => handleDeleteCountry(테이블)}
+                        type="submit"
+                      >
+                        삭제
+                      </button>
+                      {/* 함수로 감싼다/ 화살표 함수 빼면 함수의 리턴값임*/}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
