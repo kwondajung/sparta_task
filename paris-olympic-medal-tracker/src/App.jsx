@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import InputBox from './components/InputBox';
+import Button from './components/Button';
 
 function App() {
   // 새로운 배열
@@ -86,58 +88,46 @@ function App() {
           setCountry(newCountry);
         }}
       >
-        <div>
-          <h4>국가명</h4>
-          <input
-            type="text"
-            placeholder="국가 입력"
-            value={country}
-            onChange={(e) => {
-              const newCountry = e.target.value;
-              setCountry(newCountry);
-            }}
-          />
-        </div>
-        <div>
-          <h4>금메달</h4>
-          <input
-            type="number"
-            value={gold}
-            onChange={(e) => {
-              const newGold = e.target.value;
-              setGold(newGold);
-            }}
-          />
-        </div>
-        <div>
-          <h4>은메달</h4>
-          <input
-            type="number"
-            value={silver}
-            onChange={(e) => {
-              const newSilver = e.target.value;
-              setSilver(newSilver);
-            }}
-          />
-        </div>
-        <div>
-          <h4>동메달</h4>
-          <input
-            type="number"
-            value={bronze}
-            onChange={(e) => {
-              const newBronze = e.target.value;
-              setBronze(newBronze);
-            }}
-          />
-        </div>
+        <InputBox
+          name="국가명"
+          placeholder="국가 입력"
+          type="text"
+          value={country}
+          onChangeFunc={(e) => {
+            const newCountry = e.target.value;
+            setCountry(newCountry);
+          }}
+        />
+        <InputBox
+          name="금메달"
+          type="number"
+          value={gold}
+          onChangeFunc={(e) => {
+            const newGold = e.target.value;
+            setGold(newGold);
+          }}
+        />
+        <InputBox
+          name="은메달"
+          type="number"
+          value={silver}
+          onChangeFunc={(e) => {
+            const newSilver = e.target.value;
+            setSilver(newSilver);
+          }}
+        />
+        <InputBox
+          name="동메달"
+          type="number"
+          value={bronze}
+          onChangeFunc={(e) => {
+            const newBronze = e.target.value;
+            setBronze(newBronze);
+          }}
+        />
         <div className="button-group">
-          <button onClick={handleAddCountry} type="submit">
-            국가 추가
-          </button>
-          <button onClick={handleUpdateCountry} type="submit">
-            업데이트
-          </button>
+          <Button onClickFunc={handleAddCountry} btnName="국가 추가" />
+          <Button onClickFunc={handleUpdateCountry} btnName="업데이트" />
         </div>
       </form>
       <div>
