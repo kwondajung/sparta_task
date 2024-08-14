@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Input from './components/Input';
 
 function App() {
   // 새로운 배열
@@ -40,29 +41,34 @@ function App() {
         return false;
       }
     });
-
     const 수정 = countryArr.map(function (대상) {
       if (대상.name === 비교.name) {
         return {
-          ...대상,
+          name: country,
           gold,
           silver,
           bronze,
         };
-      } else {
-        return 대상;
       }
     });
-
     setCountryArr(수정);
   };
-
   // 📌 삭제하기
   // 삭제하기 btn이 클릭됐을 때 이 버튼이 어느 국가의 삭제하기 btn인지 판별하기 위해 버튼 자체에서 국가의 이름을 넘겨줘야 함
   // 그리고 그 넘겨준 인자(국가의 이름)를 여기 버튼 핸들러에서 받아오면 됨
   // 이 버튼은 form 태그 안에 있는 것이 아니기 때문에 prevent 필요 없음
+  // const handleDeleteCountry = (country) => {
+  //   const 삭제 = countryArr.filter(function(대상){
+  //     if(대상.name === country.name){
+  //       return false;
+  //     } else {
+  //       return true;
+  //     }
+  //   });
+  //   setCountryArr(삭제);
+  // }
+
   const handleDeleteCountry = ({ name }) => {
-    // const {name} = country;
     const 삭제 = countryArr.filter(function (대상) {
       if (대상.name === name) {
         return false;
@@ -76,6 +82,7 @@ function App() {
   return (
     <div className="container">
       <h1>2024 파리 올림픽 메달 트래커</h1>
+      <Input />
       <form
         className="input-group"
         onSubmit={function (e) {
@@ -153,15 +160,15 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {countryArr.map((country) => (
-                <tr key={country.name}>
-                  <td>{country.name}</td>
-                  <td>{country.gold}</td>
-                  <td>{country.silver}</td>
-                  <td>{country.bronze}</td>
+              {countryArr.map((테이블) => (
+                <tr key={테이블.name}>
+                  <td>{테이블.name}</td>
+                  <td>{테이블.gold}</td>
+                  <td>{테이블.silver}</td>
+                  <td>{테이블.bronze}</td>
                   <td>
                     <button
-                      onClick={() => handleDeleteCountry(country)}
+                      onClick={() => handleDeleteCountry(테이블)}
                       type="submit"
                     >
                       삭제
