@@ -18,33 +18,20 @@ function App() {
   // 1. 먼저 있는 배열에 추가로 입력되는 객체 넣기
   // 2. state 변경
 
-  // const handleAddCountry = () => {
-  //   if (country !== '') {
-  //     const 추가 = {
-  //       name: country,
-  //       gold,
-  //       silver,
-  //       bronze,
-  //     };
-  //     const 새배열 = [...countryArr, 추가];
-  //     setCountryArr(새배열);
-  //     console.log('if문 통과');
-  //     return;
-  //   } else {
-  //     alert('국가를 추가해주세요!');
-  //     console.log('알럿창 확인');
-  //     return;
-  //   }
-  // };
   const handleAddCountry = () => {
-    const 추가 = {
-      name: country,
-      gold,
-      silver,
-      bronze,
-    };
-    const 새배열 = [...countryArr, 추가];
-    setCountryArr(새배열);
+    if (country.length === 0) {
+      alert('국가명을 입력해주세요!');
+      return;
+    } else {
+      const 추가 = {
+        name: country,
+        gold,
+        silver,
+        bronze,
+      };
+      const 새배열 = [...countryArr, 추가];
+      setCountryArr(새배열);
+    }
   };
 
   // 📌 업데이트
