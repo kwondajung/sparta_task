@@ -58,16 +58,6 @@ function App() {
   // 삭제하기 btn이 클릭됐을 때 이 버튼이 어느 국가의 삭제하기 btn인지 판별하기 위해 버튼 자체에서 국가의 이름을 넘겨줘야 함
   // 그리고 그 넘겨준 인자(국가의 이름)를 여기 버튼 핸들러에서 받아오면 됨
   // 이 버튼은 form 태그 안에 있는 것이 아니기 때문에 prevent 필요 없음
-  // const handleDeleteCountry = (country) => {
-  //   const 삭제 = countryArr.filter(function(대상){
-  //     if(대상.name === country.name){
-  //       return false;
-  //     } else {
-  //       return true;
-  //     }
-  //   });
-  //   setCountryArr(삭제);
-  // }
 
   const handleDeleteCountry = ({ name }) => {
     const 삭제 = countryArr.filter(function (대상) {
